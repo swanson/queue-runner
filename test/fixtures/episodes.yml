@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  season_number: 
+  episode_number: 
+  show_id: 
+
+two:
+  season_number: 
+  episode_number: 
+  show_id: 

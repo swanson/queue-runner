@@ -1,1 +1,25 @@
 Hi <%= current_user.try(:email) %>
+
+<h1>Unwatched</h1>
+<ul>
+<% @unwatched.each do |w| %>
+  <%= content_tag_for(:li, w) do %>
+    <%= w.episode.to_s %>
+    <%= link_to "Mark as Watched", user_watch_toggle_watched_path(w.id),
+      :method => :post,
+      :remote => true %>
+  <% end %>
+<% end %>
+</ul>
+
+<h1>Watched</h1>
+<ul>
+<% @watched.each do |w| %>
+  <%= content_tag_for(:li, w) do %>
+    <%= w.episode.to_s %>
+    <%= link_to "Undo?", user_watch_toggle_watched_path(w.id),
+      :method => :post,
+      :remote => true %>
+  <% end %>
+<% end %>
+</ul>

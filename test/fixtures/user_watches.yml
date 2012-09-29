@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  episode_id: 1
+  watched: false
+
+two:
+  user_id: 1
+  episode_id: 1
+  watched: false
