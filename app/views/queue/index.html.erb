@@ -1,5 +1,7 @@
 Hi <%= current_user.try(:email) %>
 
+<%= link_to "Add Show", new_show_path %>
+
 <h1>Unwatched</h1>
 <ul>
 <% @unwatched.each do |w| %>
@@ -23,3 +25,8 @@ Hi <%= current_user.try(:email) %>
   <% end %>
 <% end %>
 </ul>
+
+<h1>Tracking shows</h1>
+<% @shows.each do |s| %>
+  <%= s.name %>
+<% end %>

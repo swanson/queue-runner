@@ -4,6 +4,7 @@ class QueueController < ApplicationController
   def index
     @unwatched = current_user.unwatched
     @watched = current_user.watched
+    @shows = current_user.shows
   end
 
   def add_show

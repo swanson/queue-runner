@@ -29,4 +29,9 @@ gem 'bootstrap-sass', '~> 2.1.0.0'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'jquery-rails'
+gem 'nestful'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+end
 
