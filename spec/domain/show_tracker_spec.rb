@@ -7,8 +7,8 @@ describe ShowTracker do
   end
 
   describe "#track_show" do
-    let(:show) { Show.new }
-    let(:user) { User.new }
+    let(:show) { Show.create }
+    let(:user) { User.create }
 
     it "should add all episodes as unwatched" do
       show.episodes << Episode.new
@@ -30,8 +30,8 @@ describe ShowTracker do
 
   describe "#find_or_create" do
     let(:search_results) { [{"tvdb_id" => "123", "title" => "Facts of Life"}] }
-    let(:s01e01) { {"season" => "1", "episode" => "1", "title" => "Pilot"} }
-    let(:s01e02) { {"season" => "1", "episode" => "2", "title" => "Finale"} }
+    let(:s01e01) { {"season" => "1", "episode" => "1", "title" => "Pilot", "first_aired" => 2.weeks.ago.to_i} }
+    let(:s01e02) { {"season" => "1", "episode" => "2", "title" => "Finale", "first_aired" => 1.week.ago.to_i} }
     
     before(:each) do
       @api.stub(:search).and_return(search_results)
