@@ -1,32 +1,37 @@
-Hi <%= current_user.try(:email) %>
+<p>Hi <%= current_user.try(:email) %></p>
 
-<%= link_to "Add Show", new_show_path %>
+<%= link_to "Add Show", new_show_path, :class => "btn btn-success" %>
 
-<h1>Unwatched</h1>
+<h1>Watch Queue</h1>
 <ul>
-<% @unwatched.each do |w| %>
-  <%= content_tag_for(:li, w) do %>
-    <%= w.episode.to_s %>
-    <%= link_to "Mark as Watched", user_watch_toggle_watched_path(w.id),
-      :method => :post,
-      :remote => true %>
+  <% @unwatched.each do |w| %>
+    <%= content_tag_for(:li, w) do %>
+      <%= w.episode.to_s %>
+      <%= link_to "Mark as Watched", user_watch_toggle_watched_path(w.id),
+        :method => :post,
+        :remote => true %>
+    <% end %>
   <% end %>
-<% end %>
 </ul>
 
 <h1>Watched</h1>
 <ul>
-<% @watched.each do |w| %>
-  <%= content_tag_for(:li, w) do %>
-    <%= w.episode.to_s %>
-    <%= link_to "Undo?", user_watch_toggle_watched_path(w.id),
-      :method => :post,
-      :remote => true %>
+  <% @watched.last(10).each do |w| %>
+    <%= content_tag_for(:li, w) do %>
+      <%= w.episode.to_s %>
+      <%= link_to "Undo?", user_watch_toggle_watched_path(w.id),
+        :method => :post,
+        :remote => true %>
+    <% end %>
   <% end %>
-<% end %>
+  <li>
+    ...and <%= @watched.count - 10 %> more episodes!
+  </li>
 </ul>
 
 <h1>Tracking shows</h1>
+<ul>
 <% @shows.each do |s| %>
-  <%= s.name %>
+  <%= content_tag(:li, s.name) %>
 <% end %>
+</ul>
