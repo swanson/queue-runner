@@ -1,6 +1,66 @@
 <% if user_signed_in? %>
-  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>    
+  <%= content_tag(:li, :class => "dropdown") do %>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <%= current_user.email %> <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="nav-header">My Account</li>
+      <li class="divider"></li>
+      <li><%= link_to('Sign out', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+  <% end %>
 <% else %>
-  <li><%= link_to('Sign Up', new_user_registration_path)  %></li>
-  <li><%= link_to('Login', new_user_session_path)  %></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+      Sign Up <strong class="caret"></strong>
+    </a>
+    <div class="dropdown-menu" id="signup-dropdown">
+      <%= simple_form_for(:user, :url => registration_path(:user)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <p class="friendly">Sign up, it'll be awesome.</p>
+
+          <%= f.input :email, :required => false, :autofocus => true, 
+            :wrapper => :prepend do %>
+            <span class="add-on">
+                <i class="icon-envelope"></i>
+            </span><%= f.input_field :email %>
+          <% end %>
+
+          <%= f.input :password, :required => false %>
+          <%= f.input :password_confirmation, :required => false %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", :class => "btn btn-primary btn-small" %>
+        </div>
+      <% end %>
+    </div>
+  </li>
+  <li class="divider-vertical"></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+      Sign In <strong class="caret"></strong>
+    </a>
+    <div class="dropdown-menu" id="login-dropdown">
+      <%= simple_form_for(:user, :url => session_path(:user)) do |f| %>
+        <div class="form-inputs">
+          <p class="friendly">Welcome back, we missed you.</p>
+          <%= f.input :email, :required => false, :autofocus => true,
+            :wrapper => :prepend do %>
+            <span class="add-on">
+                <i class="icon-envelope"></i>
+            </span><%= f.input_field :email %>
+          <% end %>
+          <%= f.input :password, :required => false %>
+          <input type="hidden" name="user[remember_me]" value="1" checked="checked" />
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign in", :class => "btn btn-primary btn-small" %>
+        </div>
+      <% end %>
+    </div>
+  </li>
 <% end %>

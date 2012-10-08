@@ -60,5 +60,13 @@ describe ShowTracker do
       show = @tracker.find_or_create_show("Facts of Life")
       show.should == existing_show
     end
+
+    it "should not create episodes with airdate of 0" do
+      unknown_air = {"first_aired" => 0}
+      @api.stub(:all_aired_episodes).and_return([unknown_air])
+
+      show = @tracker.find_or_create_show("Facts of Life")
+      show.episodes.should have(0).episodes
+    end
   end
 end

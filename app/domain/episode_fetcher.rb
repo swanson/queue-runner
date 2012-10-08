@@ -11,7 +11,7 @@ class EpisodeFetcher
           :season_number => result["season"]
         })
 
-      if episode.nil?
+      if episode.nil? && result["first_aired"] > 0
         new_episode = create_episode(show, result)
         add_to_unwatched_queues(show, new_episode)
       end
@@ -20,11 +20,14 @@ class EpisodeFetcher
 
   private
   def create_episode(show, result)
-    Episode.create(:show => show,
+    new_episode = Episode.create(:show => show,
                    :name => result["title"], 
                    :season_number => result["season"],
                    :episode_number => result["episode"],
                    :air_date => Time.at(result["first_aired"]))
+    show.episodes << new_episode
+
+    new_episode
   end
 
   def add_to_unwatched_queues(show, episode)

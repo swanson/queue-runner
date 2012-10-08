@@ -16,6 +16,7 @@ describe EpisodeFetcher do
       @api.stub(:all_aired_episodes).and_return([s01e01, s01e02])
       @pilot = Episode.create(:season_number => 1, 
                                 :episode_number => 1, 
+                                :name => "Pilot",
                                 :show => show, 
                                 :air_date => 2.weeks.ago)
     end
@@ -44,6 +45,17 @@ describe EpisodeFetcher do
       @fetcher.add_new_episodes(show)
 
       user.unwatched.should have(2).episodes
+    end
+
+    it "does nothing if new episode has airdate of 0" do
+      unaired = {"season" => "2", "episode" => "3", "title" => "Finale", "first_aired" => 0}
+      @api.stub(:all_aired_episodes).and_return([s01e01, unaired])
+
+      show.episodes.should have(1).episodes
+      
+      @fetcher.add_new_episodes(show)
+      
+      show.episodes.should have(1).episodes
     end
   end
 end

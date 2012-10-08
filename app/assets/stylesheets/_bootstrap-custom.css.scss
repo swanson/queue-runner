@@ -11,22 +11,23 @@ $btnPrimaryBackgroundHighlight: darken($gold, 10%);
 $btnSuccessBackground: $blue-steel;
 $btnSuccessBackgroundHighlight: darken($blue-steel, 10%);
 
+$dropdownLinkBackgroundHover: $blue-steel;
+
 .btn-steel {
   text-shadow: none;
   margin: 10px 0;
 }
 
-.navbar .nav {
-  margin-right: 0px;
-}
-
-.pull-right > li > a {
-  padding-right: 0px !important; 
-  text-align: right;
+.navbar .divider-vertical {
+  height: 39px;
 }
 
 html, body {
   height: 100%;
+}
+
+.navbar .nav {
+  margin-right: 0px;
 }
  
 #wrap {

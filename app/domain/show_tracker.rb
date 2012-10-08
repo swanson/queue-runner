@@ -31,6 +31,7 @@ class ShowTracker
     episode_result = @api.all_aired_episodes(show)
 
     episode_result.each do |result|
+      next if result["first_aired"] == 0 
       show.episodes << Episode.create(:name => result["title"], 
                                       :season_number => result["season"],
                                       :episode_number => result["episode"],
