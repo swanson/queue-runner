@@ -1,37 +1,27 @@
-<p>Hi <%= current_user.try(:email) %></p>
-
-<%= link_to "Add Show", new_show_path, :class => "btn btn-success" %>
-
-<h1>Watch Queue</h1>
-<ul>
-  <% @unwatched.each do |w| %>
-    <%= content_tag_for(:li, w) do %>
-      <%= w.episode.to_s %>
-      <%= link_to "Mark as Watched", user_watch_toggle_watched_path(w.id),
-        :method => :post,
-        :remote => true %>
-    <% end %>
-  <% end %>
-</ul>
-
-<h1>Watched</h1>
-<ul>
-  <% @watched.last(10).each do |w| %>
-    <%= content_tag_for(:li, w) do %>
-      <%= w.episode.to_s %>
-      <%= link_to "Undo?", user_watch_toggle_watched_path(w.id),
-        :method => :post,
-        :remote => true %>
-    <% end %>
-  <% end %>
-  <li>
-    ...and <%= @watched.count - 10 %> more episodes!
-  </li>
-</ul>
-
-<h1>Tracking shows</h1>
-<ul>
-<% @shows.each do |s| %>
-  <%= content_tag(:li, s.name) %>
-<% end %>
-</ul>
+<div class="queue">
+  <div class="row-fluid">
+    <div class="span12">
+      <h2 class="section-title">
+        <span>Your Queue</span>
+        <div class="pull-right">
+          <%= link_to "Add Show", new_show_path, :class => "btn btn-small btn-primary" %>
+        </div>
+      </h2>
+      
+      <% if @unwatched.any? %>
+        <% @unwatched.each do |w| %>
+          <%= div_for(w) do %>
+            <%= render :partial => "episode", :locals => { :episode => w.episode, :id => w.id } %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class="episode-row">
+          <h1 style="font-weight: normal">
+            <b>You've reached TV Zero&trade;</b> 
+            <span class="pull-right">Time to go outside. Or add more shows.</span>
+          </h1>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

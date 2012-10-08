@@ -1,3 +1,24 @@
-// Place all the styles related to the show controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#new-show {
+  h1 {
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+
+  .watching {
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-block;
+    padding-right: 5px;
+  }
+
+  form {
+    height: 45px;
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .show-input {
+    width: 200px;
+  }
+}

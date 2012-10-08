@@ -1,0 +1,51 @@
+@import "colors";
+
+$bodyBackground: whiteSmoke;
+$btnPrimaryBackground: $gold;
+$btnPrimaryBackgroundHighlight: darken($gold, 10%);
+
+.navbar-inner .container, .container {
+  width: 640px;
+}
+
+$btnSuccessBackground: $blue-steel;
+$btnSuccessBackgroundHighlight: darken($blue-steel, 10%);
+
+.btn-steel {
+  text-shadow: none;
+  margin: 10px 0;
+}
+
+.navbar .nav {
+  margin-right: 0px;
+}
+
+.pull-right > li > a {
+  padding-right: 0px !important; 
+  text-align: right;
+}
+
+html, body {
+  height: 100%;
+}
+ 
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -60px;
+}
+
+#push, #footer {
+  height: 60px;
+}
+
+#footer {
+  .container {
+    border-top: 1px solid darken(whiteSmoke, 10%);
+  }
+
+  p {
+    padding-top: 10px;
+  }
+}

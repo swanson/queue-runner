@@ -7,9 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'devise/menu/login-items' %>
+  <div id="wrap">
+    <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">QueueBot</a>
+          <ul class="nav pull-right">
+            <%= render 'devise/menu/login-items' %>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<%= yield %>
-
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div id="push"></div>
+  </div>
+  <div id="footer">
+    <div class="container">
+      <p class="pull-right">Made with <i class="icon-heart"></i> by <a href="http://swanson.github.com">Matt Swanson</a></p>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,4 +1,10 @@
-<%= simple_form_for :show, :url => '/show' do |f| %>
-  <%= f.input :title %>
-  <%= f.button :submit, "Add Show" %>
-<% end %>
+<div id="new-show">
+  <h1>What fine piece of television are you watching now?</h1>
+
+  <%= simple_form_for(:show, :url => '/show', 
+                      :html => { :class => 'form-inline' }) do |f| %>
+      <p class="watching">I'm watching </p>
+      <input type="text" class="input-small show-input" placeholder="The Wire" id="show_title" name="show[title]">
+      <%= f.button :submit, "Add Show", :class => "btn btn-small btn-primary" %>
+  <% end %>
+</div>
