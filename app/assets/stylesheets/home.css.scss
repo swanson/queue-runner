@@ -1,15 +1,22 @@
 @import "colors";
 
-#signup-dropdown, #login-dropdown {
-  margin-bottom: 0px;
+#signup-form, #login-form {
   padding-bottom: 0px;
+  padding-top: 70px;
+
+  margin: 0 auto;
+  width: 250px;
 
   form {
     margin-bottom: 0px;
   }
-  
-  #user_email {
-    width: 185px;
+
+  .alert {
+    text-shadow: none;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 4px;
   }
 
   .form-actions {
@@ -22,9 +29,38 @@
     margin: 0px 15px 15px 15px;
   }
 
+  .string, .password {
+    width: 206px;
+  }
+
   p.friendly {
     font-size: 14px;
     line-height: 28px;
-    border-bottom: 1px solid darken(whiteSmoke, 10%);
+    text-align: center;
+  }
+
+  #foo {
+    width: 220px;
+    padding: 4px 0px;
+    line-height: 20px;
+  }
+
+  .account-links {
+    padding-top: 10px;
+    border-top: 1px solid darken(whiteSmoke, 10%);
+    margin-top: 15px;
+    width: 220px;
+
+    a:hover, a:visited, a:link, a:active {
+      text-decoration: none;
+    }
+
+    a:hover {
+      border-bottom: 1px dotted darken($blue-steel, 15%);
+    }
+
+    a {
+      border-bottom: 1px dotted $blue-steel;
+    }
   }
 }

@@ -3,6 +3,7 @@
 $bodyBackground: whiteSmoke;
 $btnPrimaryBackground: $gold;
 $btnPrimaryBackgroundHighlight: darken($gold, 10%);
+$linkColor: $blue-steel;
 
 .navbar-inner .container, .container {
   width: 640px;
@@ -13,6 +14,13 @@ $btnSuccessBackgroundHighlight: darken($blue-steel, 10%);
 
 $dropdownLinkBackgroundHover: $blue-steel;
 
+$infoBackground: $blue-steel;
+$infoText: white;
+
+.navbar .brand {
+  color: $blue-steel;
+}
+
 .btn-steel {
   text-shadow: none;
   margin: 10px 0;
@@ -20,6 +28,10 @@ $dropdownLinkBackgroundHover: $blue-steel;
 
 .navbar .divider-vertical {
   height: 39px;
+}
+
+.placeholder { 
+  color: #aaa;
 }
 
 html, body {
@@ -48,5 +60,17 @@ html, body {
 
   p {
     padding-top: 10px;
+  }
+
+  a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+  }
+
+  a:hover {
+    border-bottom: 1px dotted darken($blue-steel, 15%);
+  }
+
+  a {
+    border-bottom: 1px dotted $blue-steel;
   }
 }

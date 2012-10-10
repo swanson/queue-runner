@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TvQueue</title>
+  <title>QueueRunner | Track your shows</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
     <div class="navbar navbar-static-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">QueueBot</a>
+          <a class="brand" href="/">QueueRunner</a>
           <ul class="nav pull-right">
             <%= render 'devise/menu/login-items' %>
           </ul>
@@ -26,6 +26,11 @@
   </div>
   <div id="footer">
     <div class="container">
+      <p class="pull-left">
+        <a href="#">FAQ</a> &bull;
+        <a href="#">Terms</a> &bull;
+        <a href="#">Privacy</a>
+      </p>
       <p class="pull-right">Made with <i class="icon-heart"></i> by <a href="http://swanson.github.com">Matt Swanson</a></p>
     </div>
   </div>

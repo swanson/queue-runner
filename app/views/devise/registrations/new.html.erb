@@ -1,17 +1,43 @@
-<h2>Sign up</h2>
+<div id="signup-form">
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <div class="form-inputs">
+      <% if resource.errors.count > 0 %>
+        <% resource.errors.full_messages.each do |e| %>
+        <div class="alert alert-error">
+          <%= e %>
+        </div>
+        <% end %>
+      <% else %>
+        <div class="alert alert-info">
+          Sign up &mdash; you know you want to.
+        </div>
+      <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
-  </div>
+      <%= f.input :email, 
+        :autofocus => true,
+        :required => true,
+        :placeholder => "Email",
+        :error => false,
+        :label => false %>
+    <%= f.input :password, 
+        :required => true,
+        :placeholder => "Password",
+        :error => false,
+        :label => false %>
+    <%= f.input :password_confirmation, 
+        :required => true,
+        :placeholder => "Confirm password",
+        :error => false,
+        :label => false %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", :class => "btn btn-primary btn-small", :id => "foo" %>
+    <div class="account-links">
+      <small>
+        <%= link_to "Forgot?", new_password_path(resource_name), :class => "pull-left" %>
+        <%= link_to "Log in", new_session_path(resource_name), :class => "pull-right" %>
+      </small>
+    </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>
