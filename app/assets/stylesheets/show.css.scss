@@ -1,24 +1,7 @@
-#new-show {
-  h1 {
-    font-size: 20px;
-    padding-bottom: 5px;
-    text-align: center;
-  }
+#show_title {
+  margin-bottom: 0px;
+}
 
-  .watching {
-    font-size: 14px;
-    line-height: 20px;
-    display: inline-block;
-    padding-right: 5px;
-  }
-
-  form {
-    height: 45px;
-    width: 400px;
-    margin: 0 auto;
-  }
-
-  .show-input {
-    width: 200px;
-  }
+#show_add_all {
+  margin-bottom: 15px;
 }

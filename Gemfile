@@ -30,6 +30,7 @@ gem 'simple_form'
 gem 'turbolinks'
 gem 'jquery-rails'
 gem 'nestful'
+gem 'spinjs-rails'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

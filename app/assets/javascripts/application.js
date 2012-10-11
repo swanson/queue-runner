@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.placeholder.min
+//= require jquery.spin
 
 //= require bootstrap
 //= require_tree .

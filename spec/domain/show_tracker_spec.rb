@@ -10,14 +10,10 @@ describe ShowTracker do
     let(:show) { Show.create }
     let(:user) { User.create }
 
-    it "should add all episodes as unwatched" do
-      show.episodes << Episode.new
-      show.episodes << Episode.new
-
+    it "should add show to users list of tracked shows" do
       @tracker.track_show(user, show)
       
       user.shows.should include show
-      user.unwatched.should have(2).items
     end
 
     it "should not add duplicate shows" do
@@ -25,6 +21,24 @@ describe ShowTracker do
       @tracker.track_show(user,show)
 
       user.shows.should have(1).items
+    end
+
+    it "should add episodes when add_all is true" do
+      show.episodes << Episode.new
+      show.episodes << Episode.new
+
+      @tracker.track_show(user, show, true)
+
+      user.unwatched.should have(2).items
+    end
+
+    it "should not add episodes when add_all is false" do
+      show.episodes << Episode.new
+      show.episodes << Episode.new
+
+      @tracker.track_show(user, show, false)
+
+      user.unwatched.should have(0).items
     end
   end
 

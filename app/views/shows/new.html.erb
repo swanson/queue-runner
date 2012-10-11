@@ -1,10 +1,27 @@
 <div id="new-show">
-  <h1>What fine piece of television are you watching now?</h1>
+<%= simple_form_for(:show, :url => '/show') do |f| %>
+  <div class="form-inputs">
+    <div class="alert alert-info">
+      What are you watching?
+    </div>
 
-  <%= simple_form_for(:show, :url => '/show', 
-                      :html => { :class => 'form-inline' }) do |f| %>
-      <p class="watching">I'm watching </p>
-      <input type="text" class="input-small show-input" placeholder="The Wire" id="show_title" name="show[title]" autofocus="autofocus">
-      <%= f.button :submit, "Add Show", :class => "btn btn-small btn-primary" %>
-  <% end %>
+    <%= f.input :title, 
+      :autofocus => true,
+      :required => true,
+      :placeholder => "The Wire",
+      :error => false,
+      :label => false %>
+
+    <div class="control-group string required">
+      <div class="controls">
+        <label class="checkbox">
+          <input type="checkbox" name="show[add_all]" id="show_add_all"> Add all past episodes
+        </label>
+      </div>
+    </div>
+
+    <%= f.button :submit, "Add Show", :class => "btn btn-primary btn-small", 
+          :id => "foo" %>
+  </div>
+<% end %>
 </div>

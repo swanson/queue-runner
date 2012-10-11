@@ -1,15 +1,35 @@
-<h2>Forgot your password?</h2>
+<div id="forgot-form">
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, :required => true %>
-  </div>
+    <% if resource.errors.count > 0 %>
+      <% resource.errors.full_messages.each do |e| %>
+      <div class="alert alert-error">
+        <%= e %>
+      </div>
+      <% end %>
+    <% else %>
+      <div class="alert alert-info">
+        No worries, we can fix that.
+      </div>
+    <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+    <%= f.input :email, 
+      :autofocus => true,
+      :required => true,
+      :placeholder => "Enter your email address",
+      :error => false,
+      :label => false %>
+
+    <%= f.button :submit, "Send password reset", :class => "btn btn-primary btn-small", :id => "foo" %>
+    <div class="account-links">
+      <small>
+        <%= link_to "Sign up", new_registration_path(resource_name), :class => "pull-left" %>
+        <%= link_to "Log in", new_session_path(resource_name), :class => "pull-right" %>
+      </small>
+    </div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>

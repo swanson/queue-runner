@@ -1,12 +1,17 @@
 <div class="queue">
   <div class="row-fluid">
     <div class="span12">
-      <h2 class="section-title">
-        <span>Your Queue</span>
-        <div class="pull-right">
-          <%= link_to "Add Show", new_show_path, :class => "btn btn-small btn-primary" %>
+      <div class="section-title">
+        <div class="row-fluid">
+          <h2>Your Queue</h2>
+
+          <div class="pull-right">
+            <%= link_to new_show_path, :class => "btn btn-small btn-primary" do %>
+              <i class="icon-plus-sign icon-white"></i> Track a Show
+            <% end %>
+          </div>
         </div>
-      </h2>
+      </div>
       
       <% if @unwatched.any? %>
         <% @unwatched.each do |w| %>
