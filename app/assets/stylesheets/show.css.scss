@@ -5,3 +5,29 @@
 #show_add_all {
   margin-bottom: 15px;
 }
+
+#show-list {
+  
+  h2 {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .show-table {
+    padding-bottom: 20px;
+  }
+}
+
+.episode-list {
+  border-top: 1px solid darken(whiteSmoke, 10%);
+
+  .row-fluid {
+    border-bottom: 1px solid darken(whiteSmoke, 10%);
+  }
+
+  h3 {
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: normal;
+  }
+}

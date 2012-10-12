@@ -1,0 +1,12 @@
+<div id="show-list">
+  <% @shows.in_groups_of(1) do |group| %>
+    <div class="row-fluid">
+      <% group.each do |show| %>
+        <% next if show.nil? %>
+        <div class="span12">
+          <%= render show %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

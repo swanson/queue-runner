@@ -15,6 +15,10 @@ class ShowsController < ApplicationController
     redirect_to queue_index_path
   end
 
+  def index
+    @shows = current_user.shows.sort_by { |show| show.sort_name }
+  end
+
   private 
   def use_api
     @trakt_api = TraktTv.new
