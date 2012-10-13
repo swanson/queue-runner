@@ -1,5 +1,2 @@
-<% if @user_watch.watched %>
-  $('#<%= dom_id(@user_watch) %>').removeClass("unwatched").addClass("watched");
-<% else %>
-  $('#<%= dom_id(@user_watch) %>').removeClass("watched").addClass("unwatched");
-<% end %>
+$('#<%= dom_id(@user_watch) %>').attr("class", "<%= watched_status_class(@user_watch) %>");
+$('#<%= dom_id(@user_watch) %> a').html("<%= toggle_text(@user_watch) %>");
