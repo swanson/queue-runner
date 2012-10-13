@@ -20,12 +20,22 @@
           <% end %>
         <% end %>
       <% else %>
-        <div class="episode-row">
-          <h1 style="font-weight: normal">
-            <b>You've reached TV Zero&trade;</b> 
-            <span class="pull-right">Time to go outside. Or add more shows.</span>
-          </h1>
-        </div>
+        <% if @shows.empty? %>
+          <div class="episode-row">
+            <h1 style="font-weight: normal">
+              <b>You aren't tracking any shows.</b> 
+              <span class="pull-right">Click that button up there 
+                <%= image_tag "up-there.png" %></span>
+            </h1>
+          </div>
+        <% else %>
+          <div class="episode-row">
+            <h1 style="font-weight: normal">
+              <b>You've reached TV Zero&trade;</b> 
+              <span class="pull-right">Time to go outside. Or add more shows.</span>
+            </h1>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

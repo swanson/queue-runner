@@ -31,6 +31,8 @@ gem 'turbolinks'
 gem 'jquery-rails'
 gem 'nestful'
 gem 'spinjs-rails'
+gem 'quiet_assets', :group => :development
+gem 'thin'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

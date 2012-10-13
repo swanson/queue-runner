@@ -1,1 +1,38 @@
-<p class="lead">Tell QueueBot what shows you watch and he'll keep track of which episodes you still need to watch.</p>
+<div id="marketing">
+  <h1>What are you watching next?</h1>
+  
+  <div class="row-fluid">
+    <div class="span4">
+      <%= image_tag "step-one.png", :class => "img-polaroid" %>
+      <h2>Add</h2>
+      <p>
+        Add the shows you watch to your Queue.
+      </p>
+      <p>
+        QueueRunner works best with airs that are currently airing.
+      </p>
+    </div>
+    <div class="span4">
+      <%= image_tag "step-two.png", :class => "img-polaroid" %>
+      <h2>Queue</h2>
+      <p>
+        New episodes show up in your Queue after they air.
+      </p>
+      <p>
+        Any old episodes you haven't watched will be there, too.
+      </p>
+    </div>
+    <div class="span4">
+      <%= image_tag "step-three.png", :class => "img-polaroid" %>
+      <h2>Watch</h2>
+      <p>Mark off watched episodes as you run through your Queue.</p>
+      <p>It's so easy, even people that watch <i>2 Broke Girls</i> can do it!</p>
+    </div>
+  </div>
+
+  <div class="pagination-centered">
+    <%= link_to "Get Started", new_user_registration_path, :class => "btn btn-primary btn-giant" %>
+    <p>(It's free and awesome)</p>
+  </div>
+
+</div>

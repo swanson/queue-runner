@@ -64,3 +64,21 @@
     }
   }
 }
+
+#marketing {
+  h1 {
+    text-align: center;
+    padding: 20px 0px;
+  }
+
+  h2 {
+    text-align: center;
+    background-color: $blue-steel;
+    color: whiteSmoke;
+    width: 200px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}

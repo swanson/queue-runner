@@ -18,13 +18,27 @@ $infoBackground: $blue-steel;
 $infoText: white;
 
 .navbar .brand {
-  color: $blue-steel;
+  line-height: 22px;
+  height: 22px;
+
+  img {
+    vertical-align: top;
+    margin-right: 2px;
+  }
 }
 
 .btn-steel {
   text-shadow: none;
   margin: 10px 0;
   width: 100px;
+}
+
+.btn-giant {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  padding: 15px 35px;
+  font-size: 36px;
+  line-height: normal;
 }
 
 .navbar .divider-vertical {
