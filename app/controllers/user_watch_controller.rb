@@ -14,18 +14,6 @@ class UserWatchController < ApplicationController
     end
   end
 
-  def toggle_watched_no_remove
-    if @user_watch.nil?
-      raise "Bad!"
-    end
-
-    @user_watch.toggle!(:watched)
-
-    respond_to do |wants|
-      wants.js {}
-    end
-  end
-
   private
   def get_user_watch
     @user_watch = current_user.user_watches.find_by_episode_id(params[:episode_id])
