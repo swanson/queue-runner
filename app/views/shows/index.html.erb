@@ -1,3 +1,15 @@
+<div class="section-title">
+  <div class="row-fluid">
+    <h2>Your Shows</h2>
+
+    <div class="pull-right">
+      <%= link_to new_show_path, :class => "btn btn-small btn-primary" do %>
+        <i class="icon-plus-sign icon-white"></i> Track a Show
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div id="show-list">
   <% @watches.each do |show, watches| %>
     <div class="row-fluid">
