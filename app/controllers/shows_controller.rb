@@ -16,7 +16,9 @@ class ShowsController < ApplicationController
   end
 
   def index
-    @shows = current_user.shows.sort_by { |show| show.sort_name }
+    @watches = current_user.user_watches
+                .group_by{|w| w.show}
+                .sort_by{|k,v| k.sort_name}
   end
 
   private 

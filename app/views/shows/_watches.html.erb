@@ -1,0 +1,23 @@
+<div class="episode-list">
+  <% watches.sort_by{|w| w.sort_key}.each do |watch| %>
+    <div id="user_watch_<%= watch.id %>" class="row-fluid <%= watched_status_class(watch) %>">
+      <div class="span1">
+        <h3><%= watch.episode.production_number %></h3>
+      </div>
+      <div class="span5 offset1">
+        <h3><%= watch.episode.name %></h3>
+      </div>
+      <div class="span2">
+        <h3><%= watch.episode.airdate %></h3>
+      </div>
+      <div class="span3">
+        <div class="pull-right">
+          <%= link_to toggle_text(watch), toggle_watched_no_remove_path(watch.episode.id),
+              :method => :post,
+              :remote => true,
+              :class => "btn btn-small btn-success btn-steel" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

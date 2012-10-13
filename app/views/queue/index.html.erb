@@ -16,7 +16,7 @@
       <% if @unwatched.any? %>
         <% @unwatched.each do |w| %>
           <%= div_for(w) do %>
-            <%= render :partial => "episode", :locals => { :episode => w.episode, :id => w.id } %>
+            <%= render :partial => "episode", :locals => { :episode => w.episode } %>
           <% end %>
         <% end %>
       <% else %>

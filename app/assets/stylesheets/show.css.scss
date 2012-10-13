@@ -16,6 +16,12 @@
   .show-table {
     padding-bottom: 20px;
   }
+
+  .watched {
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+  }
 }
 
 .episode-list {

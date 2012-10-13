@@ -1,12 +1,16 @@
 <div id="show-list">
-  <% @shows.in_groups_of(1) do |group| %>
+  <% @watches.each do |show, watches| %>
     <div class="row-fluid">
-      <% group.each do |show| %>
-        <% next if show.nil? %>
-        <div class="span12">
-          <%= render show %>
+      <div class="span12">
+        <div class="show-table">
+          <div class="row-fluid">
+            <div class="span10">
+              <h2><%= show.name %></h2>
+            </div>
+          </div>
+        <%= render :partial => "shows/watches", :locals => { :watches => watches } %>
         </div>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </div>

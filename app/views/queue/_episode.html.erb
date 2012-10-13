@@ -8,7 +8,7 @@
     </div>
     <div class="span3">
       <div class="pull-right">
-        <%= link_to "Mark as Watched", user_watch_toggle_watched_path(id),
+        <%= link_to "Mark as Watched", toggle_watched_path(episode.id),
             :method => :post,
             :remote => true,
             :class => "btn btn-small btn-success btn-steel" %>

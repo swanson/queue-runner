@@ -1,0 +1,5 @@
+<% if @user_watch.watched %>
+  $('#<%= dom_id(@user_watch) %>').removeClass("unwatched").addClass("watched");
+<% else %>
+  $('#<%= dom_id(@user_watch) %>').removeClass("watched").addClass("unwatched");
+<% end %>
