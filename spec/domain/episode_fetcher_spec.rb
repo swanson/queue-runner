@@ -38,7 +38,7 @@ describe EpisodeFetcher do
     end
 
     it "adds new episodes to users unwatched queue" do
-      ShowTracker.new(@api).track_show(user, show, true)
+      ShowTracker.new(@api).track_show(user, show, false)
 
       user.unwatched.should have(1).episodes
 

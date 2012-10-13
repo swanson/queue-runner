@@ -23,22 +23,24 @@ describe ShowTracker do
       user.shows.should have(1).items
     end
 
-    it "should add episodes when add_all is true" do
+    it "should add episodes as watched when seen_all is true" do
       show.episodes << Episode.new
       show.episodes << Episode.new
 
       @tracker.track_show(user, show, true)
 
-      user.unwatched.should have(2).items
+      user.user_watches.should have(2).items
+      user.watched.should have(2).items
     end
 
-    it "should not add episodes when add_all is false" do
+    it "should add episodes as unwatched when seen_all is false" do
       show.episodes << Episode.new
       show.episodes << Episode.new
 
       @tracker.track_show(user, show, false)
 
-      user.unwatched.should have(0).items
+      user.user_watches.should have(2).items
+      user.unwatched.should have(2).items
     end
   end
 

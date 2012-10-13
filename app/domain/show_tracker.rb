@@ -3,14 +3,12 @@ class ShowTracker
     @api = api
   end
 
-  def track_show(user, show, should_add_all = false)
+  def track_show(user, show, seen_all = false)
     return if user.shows.include? show
 
     user.shows << show
     
-    if should_add_all
-      add_all_episodes(user, show)
-    end
+    add_all_episodes(user, show, seen_all)
 
     user.save
   end
@@ -29,11 +27,11 @@ class ShowTracker
   end
 
   private
-  def add_all_episodes(user, show)
+  def add_all_episodes(user, show, seen_all)
     show.episodes.each do |episode|
       user.user_watches << UserWatch.create(:user => user, 
                                             :episode => episode, 
-                                            :watched => false)
+                                            :watched => seen_all)
     end
   end
 
