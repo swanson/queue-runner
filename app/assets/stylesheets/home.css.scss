@@ -76,9 +76,19 @@
     background-color: $blue-steel;
     color: whiteSmoke;
     width: 200px;
+    font-size: 24px;
   }
 
   p {
     font-size: 13px;
+  }
+}
+
+#faq {
+  padding-top: 10px;
+
+  .question {
+    font-weight: bold;
+    font-size: 16px;
   }
 }
