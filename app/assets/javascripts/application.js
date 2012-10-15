@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.placeholder.min
 //= require jquery.spin
-//= require turbolinks
 
 //= require bootstrap
 //= require_tree .

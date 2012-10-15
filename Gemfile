@@ -29,7 +29,7 @@ end
 gem 'devise'
 gem 'bootstrap-sass', '~> 2.1.0.0'
 gem 'simple_form'
-gem 'turbolinks'
+#gem 'turbolinks'
 gem 'jquery-rails'
 gem 'nestful'
 gem 'spinjs-rails'
