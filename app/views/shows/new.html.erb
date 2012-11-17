@@ -1,9 +1,15 @@
 <div id="new-show">
 <%= simple_form_for(:show, :url => '/shows') do |f| %>
   <div class="form-inputs">
-    <div class="alert alert-info">
-      What are you watching?
-    </div>
+    <% if flash[:alert] %>
+      <div class="alert alert-error">
+        <%= flash[:alert] %>
+      </div>
+    <% else %>
+      <div class="alert alert-info">
+        What are you watching?
+      </div>
+    <% end %>
 
     <%= f.input :title, 
       :autofocus => true,
