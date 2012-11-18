@@ -4,6 +4,7 @@ task :fetch_episode_links => :environment do
   
   unlinked_episodes.reverse.each do |e|
     links = Ferrara.fetch_links(e.show.name, e.season_number, e.episode_number)
+    puts "Getting links for #{e.to_s}"
 
     links.each do |source, link|
       next unless link
