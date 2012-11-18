@@ -1,8 +1,8 @@
 desc "Get streaming links for episodes"
 task :fetch_episode_links => :environment do
-  unlinked_episodes = Episode.includes(:episode_links).where("episode_links.id is null")
+  unlinked_episodes = Episode.includes(:episode_links).where("episode_links.id is null").limit(20)
   
-  unlinked_episodes.sample(20).each do |e|
+  unlinked_episodes.each do |e|
     puts "Getting links for #{e.to_s}"
     links = Ferrara.fetch_links(e.show.name, e.season_number, e.episode_number)
 
