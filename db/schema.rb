@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118005738) do
-
-  create_table "episode_links", :force => true do |t|
-    t.integer  "episode_id"
-    t.string   "url"
-    t.string   "source"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121118183051) do
 
   create_table "episodes", :force => true do |t|
     t.integer   "season_number"

@@ -8,6 +8,14 @@ class QueueController < ApplicationController
   end
 
   def add_show
+  end
 
+  def check_availability
+    @episode = Episode.find(params[:episode_id])
+    @links = Ferrara.fetch_links(@episode.show.name, @episode.season_number, @episode.episode_number)
+
+    respond_to do |wants|
+      wants.js
+    end
   end
 end

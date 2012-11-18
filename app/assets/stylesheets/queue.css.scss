@@ -94,4 +94,12 @@ a.pretty-link {
   .air-date {
     color: darken(whiteSmoke, 30%);
   }
+
+  .availability {
+    display: inline;
+
+    a {
+      margin-left: 5px;
+    }
+  }
 }

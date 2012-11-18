@@ -36,7 +36,6 @@ gem 'nestful'
 gem 'spinjs-rails'
 gem 'thin'
 gem 'ferrara', :git => 'git://github.com/swanson/ferrara.git'
-gem 'classy_enum'
 
 
 group :test, :development do

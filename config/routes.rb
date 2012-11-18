@@ -5,6 +5,10 @@ TvQueue::Application.routes.draw do
   get "queue/index"
   get "queue/add_show"
 
+  match "queue/check_availability/:episode_id" => "queue#check_availability",
+    :via => :post,
+    :as => "check_availability"
+
   get "home/index"
   get "home/terms", :as => "tos"
   get "home/privacy", :as => "privacy"
