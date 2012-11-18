@@ -11,23 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007210512) do
+ActiveRecord::Schema.define(:version => 20121118005738) do
+
+  create_table "episode_links", :force => true do |t|
+    t.integer  "episode_id"
+    t.string   "url"
+    t.string   "source"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "episodes", :force => true do |t|
-    t.integer  "season_number"
-    t.integer  "episode_number"
-    t.integer  "show_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.string   "name"
-    t.date     "air_date"
+    t.integer   "season_number"
+    t.integer   "episode_number"
+    t.integer   "show_id"
+    t.timestamp "created_at",     :null => false
+    t.timestamp "updated_at",     :null => false
+    t.string    "name"
+    t.date      "air_date"
   end
 
   create_table "shows", :force => true do |t|
-    t.string   "name"
-    t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "name"
+    t.string    "slug"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "user_shows", :force => true do |t|
@@ -36,26 +44,26 @@ ActiveRecord::Schema.define(:version => 20121007210512) do
   end
 
   create_table "user_watches", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "episode_id"
-    t.boolean  "watched"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer   "user_id"
+    t.integer   "episode_id"
+    t.boolean   "watched"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.string    "email",                  :default => "", :null => false
+    t.string    "encrypted_password",     :default => "", :null => false
+    t.string    "reset_password_token"
+    t.timestamp "reset_password_sent_at"
+    t.timestamp "remember_created_at"
+    t.integer   "sign_in_count",          :default => 0
+    t.timestamp "current_sign_in_at"
+    t.timestamp "last_sign_in_at"
+    t.string    "current_sign_in_ip"
+    t.string    "last_sign_in_ip"
+    t.timestamp "created_at",                             :null => false
+    t.timestamp "updated_at",                             :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

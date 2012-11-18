@@ -1,5 +1,6 @@
 class Episode < ActiveRecord::Base
   belongs_to :show
+  has_many :episode_links
 
   def to_s
     "#{production_number} - #{name}"

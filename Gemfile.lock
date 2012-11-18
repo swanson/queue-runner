@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:swanson/ferrara.git
-  revision: 1581140946a3c55958b0b1d63a5517f90d8f9c6b
+  revision: 3ba41647846503f266dc842df96c8fb63181f0c1
   specs:
     ferrara (0.0.1)
       httparty
@@ -39,6 +39,8 @@ GEM
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.1.0.0)
     builder (3.0.3)
+    classy_enum (3.1.1)
+      rails (>= 3.0)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -78,7 +80,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.19)
-    multi_json (1.3.6)
+    multi_json (1.3.7)
     multi_xml (0.5.1)
     nestful (0.0.8)
       activesupport (>= 3.0.0.beta)
@@ -175,6 +177,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.1.0.0)
+  classy_enum
   coffee-rails (~> 3.2.1)
   devise
   ferrara!
