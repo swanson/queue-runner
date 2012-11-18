@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/swanson/ferrara.git
-  revision: 53148906ce1e2965906b4bfb0e8da31e0aeefd75
+  revision: 441764496f70745cd3a310647437e3c52e1d9c35
   specs:
     ferrara (0.0.1)
       httparty
