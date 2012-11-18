@@ -2,6 +2,8 @@ class Episode < ActiveRecord::Base
   belongs_to :show
   has_many :episode_links
 
+  default_scope order("air_date desc")
+
   def to_s
     "#{production_number} - #{name}"
   end

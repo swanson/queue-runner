@@ -1,4 +1,4 @@
-<div class="episode-row">
+<div class="episode-row" data-toggle="collapse" data-target="#<%= watch.episode.id %>-details">
   <div class="row-fluid">
     <div class="span4">
       <h1><%= watch.episode.show.name %></h1>
@@ -14,5 +14,19 @@
               :class => "btn btn-small btn-success btn-steel" %>
       </div>
     </div>
+  </div>
+  <div id="<%= watch.episode.id %>-details" class="row-fluid episode-details collapse">
+    <div class="pull-left air-date">
+      <i class="icon-time"></i> Aired <%= watch.episode.air_date.strftime("%A, %b %d") %>
+    </div>
+    <% if watch.episode.episode_links.any? %>
+      <div class="pull-right">
+        <i class="icon-eye-open"></i>
+        <% watch.episode.episode_links.each do |el| %>
+          <%= link_to el.source.display_name, el.url, :class => "pretty-link" %>
+        <% end %>
+      </div>
+    <% end %> 
+
   </div>
 </div>

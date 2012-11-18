@@ -45,6 +45,12 @@
   }
 }
 
+.user_watch {
+  div:hover {
+    background: darken(whiteSmoke, 2%);
+  }
+}
+
 .episode-row {
   border-bottom: 1px solid darken(whiteSmoke, 10%);
 
@@ -66,5 +72,26 @@
 
   img {
     vertical-align: top;
+  }
+}
+
+a.pretty-link {
+  text-decoration: none;
+  border-bottom: 1px dotted $blue-steel;
+
+  :hover {
+    border-bottom: 1px dotted darken($blue-steel, 15%);
+  }
+}
+
+.episode-details {
+  margin: 5px 0px;
+
+  i {
+    opacity: 0.35;
+  }
+
+  .air-date {
+    color: darken(whiteSmoke, 30%);
   }
 }
