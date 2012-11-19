@@ -90,3 +90,8 @@ html, body {
     border-bottom: 1px dotted $blue-steel;
   }
 }
+
+.hidden {
+  display: none !important;
+  width: 0px !important;
+}

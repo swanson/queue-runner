@@ -97,9 +97,18 @@ a.pretty-link {
 
   .availability {
     display: inline;
-
+    margin-right: 1px;
+    
     a {
       margin-left: 5px;
     }
+  }
+
+  .spinner {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: bottom;
+    margin-left: 5px;
   }
 }
