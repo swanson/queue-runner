@@ -11,15 +11,22 @@
   h2 {
     font-size: 20px;
     line-height: 25px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid darken(whiteSmoke, 10%);
+
+    i {
+      position: relative;
+      top: 5px;
+    }
   }
 
-  .show-table {
-    padding-bottom: 20px;
+  a.toggle-header {
+    color: #333;
   }
 }
 
 .episode-list {
-  border-top: 1px solid darken(whiteSmoke, 10%);
 
   .row-fluid {
     border-bottom: 1px solid darken(whiteSmoke, 10%);

@@ -11,16 +11,19 @@
 </div>
 
 <div id="show-list">
-  <% @watches.each do |show, watches| %>
+  <% @watches.each do |show, show_watches| %>
     <div class="row-fluid">
       <div class="span12">
-        <div class="show-table">
+        <div class="show-table" id="show-table-<%= show.id %>" data-parent="#show-list"
+          data-toggle="collapse" data-target="#watches-<%= show.id %>">
           <div class="row-fluid">
-            <div class="span10">
-              <h2><%= show.name %></h2>
+            <div class="span12 show-title">
+              <h2><%= show.name %> <div class="pull-right"><i class="icon-chevron-right"></i></div></h2>
             </div>
           </div>
-        <%= render :partial => "shows/watches", :locals => { :watches => watches } %>
+        </div>
+        <div id="watches-<%= show.id %>" class="collapse">
+          <%= render :partial => 'shows/watches', :locals => { :watches => show_watches } %>
         </div>
       </div>
     </div>
