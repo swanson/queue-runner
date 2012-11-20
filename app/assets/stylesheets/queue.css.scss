@@ -46,7 +46,7 @@
 }
 
 .user_watch {
-  div:hover {
+  div:hover, a.pretty-link:hover, span:hover {
     background: darken(whiteSmoke, 2%);
   }
 }
