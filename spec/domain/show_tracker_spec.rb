@@ -7,8 +7,8 @@ describe ShowTracker do
   end
 
   describe "#track_show" do
-    let(:show) { Show.create }
-    let(:user) { User.create }
+    let(:show) { Show.new }
+    let(:user) { User.new }
 
     it "should add show to users list of tracked shows" do
       @tracker.track_show(user, show)

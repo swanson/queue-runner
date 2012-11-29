@@ -1,4 +1,5 @@
 require "spec_helper"
+require "pry"
 
 describe EpisodeFetcher do
   before(:each) do
@@ -9,8 +10,8 @@ describe EpisodeFetcher do
   context "#add_new_episodes" do
     let(:s01e01) { {"season" => "1", "episode" => "1", "title" => "Pilot", "first_aired" => 2.weeks.ago.to_i} }
     let(:s01e02) { {"season" => "1", "episode" => "2", "title" => "Finale", "first_aired" => 1.week.ago.to_i} }
-    let(:show) { Show.create }
-    let(:user) { User.create(:email => "test@test.com", :password => "password") }
+    let(:show) { Show.new }
+    let(:user) { User.new }
 
     before(:each) do
       @api.stub(:all_aired_episodes).and_return([s01e01, s01e02])
@@ -38,13 +39,10 @@ describe EpisodeFetcher do
     end
 
     it "adds new episodes to users unwatched queue" do
-      ShowTracker.new(@api).track_show(user, show, false)
-
-      user.unwatched.should have(1).episodes
+      show.users << user
 
       @fetcher.add_new_episodes(show)
-
-      user.unwatched.should have(2).episodes
+      user.user_watches.should have(1).episodes
     end
 
     it "does nothing if new episode has airdate of 0" do

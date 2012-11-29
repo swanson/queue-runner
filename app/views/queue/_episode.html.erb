@@ -1,33 +1,33 @@
 <div class="episode-row">
-  <div class="row-fluid" data-toggle="collapse" data-target="#<%= watch.episode.id %>-details">
+  <div class="row-fluid" data-toggle="collapse" data-target="#<%= watch.episode_id %>-details">
     <div class="span4">
-      <h1><%= watch.episode.show.name %></h1>
+      <h1><%= watch.show_name %></h1>
     </div>
     <div class="span5">
-      <h2><p><%= watch.episode.to_s %></p></h2>
+      <h2><p><%= watch.episode_name %></p></h2>
     </div>
     <div class="span3">
       <div class="pull-right">
-        <%= link_to toggle_text(watch), toggle_watched_path(watch.episode.id),
+        <%= link_to toggle_text(watch), toggle_watched_path(watch.episode_id),
               :method => :post,
               :remote => true,
               :class => "btn btn-small btn-success btn-steel toggle loading" %>
       </div>
     </div>
   </div>
-  <div id="<%= watch.episode.id %>-details" class="row-fluid episode-details collapse">
+  <div id="<%= watch.episode_id %>-details" class="row-fluid episode-details collapse">
     <div class="pull-left air-date">
-      <i class="icon-time"></i> Aired <%= watch.episode.air_date.strftime("%A, %b %d") %>
+      <i class="icon-time"></i> <%= watch.aired_on %>
     </div>
 
     <div class="pull-right">
       <i class="icon-eye-open"></i>
-      <div class="availability" id="streaming-<%= watch.episode.id %>">
-        <%= link_to "Check availability", check_availability_path(watch.episode.id),
+      <div class="availability" id="streaming-<%= watch.episode_id %>">
+        <%= link_to "Check availability", check_availability_path(watch.episode_id),
             :method => :post,
             :remote => true,
             :class => "pretty-link check" %>
-        <span class="spinner hidden" id="spinner-<%= watch.episode.id %>"></span>
+        <span class="spinner hidden" id="spinner-<%= watch.episode_id %>"></span>
       </div>
     </div>
   </div>

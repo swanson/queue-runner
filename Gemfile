@@ -36,6 +36,8 @@ gem 'nestful'
 gem 'spinjs-rails'
 gem 'thin'
 gem 'ferrara', :git => 'git://github.com/swanson/ferrara.git'
+gem 'draper'
+gem 'stamp'
 
 
 group :test, :development do
