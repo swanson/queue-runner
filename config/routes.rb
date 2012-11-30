@@ -18,5 +18,5 @@ TvQueue::Application.routes.draw do
     :via => :post, 
     :as => "toggle_watched"
 
-  resources :shows, :only => [:new, :create, :index]
+  resources :shows, :only => [:new, :create, :index, :show]
 end

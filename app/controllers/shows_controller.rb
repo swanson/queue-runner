@@ -23,9 +23,12 @@ class ShowsController < ApplicationController
   end
 
   def index
-    @watches = current_user.user_watches
-                .group_by{|w| w.show}
-                .sort_by{|k,v| k.sort_name}
+    @shows = current_user.shows.sort_by(&:sort_name)
+  end
+
+  def show
+    @show = Show.find(params[:id])
+    @watches = current_user.user_watches.select { |w| w.show.id == @show.id }
   end
 
   private 

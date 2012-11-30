@@ -29,6 +29,7 @@ $infoText: white;
 }
 
 .btn-steel {
+  @extend .btn-success;
   text-shadow: none;
   margin: 10px 0;
   width: 100px;

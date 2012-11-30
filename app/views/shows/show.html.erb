@@ -1,0 +1,8 @@
+<div id="show-details">
+  <div class="row-fluid">
+    <h1><%= @show.name %></h1>
+  </div>
+</div>
+
+<%= render :partial => 'shows/watches', :locals => { :watches => @watches } %>
+
