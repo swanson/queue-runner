@@ -28,7 +28,7 @@ class ShowsController < ApplicationController
 
   def show
     @show = Show.find(params[:id])
-    @watches = current_user.user_watches.select { |w| w.show.id == @show.id }
+    @watches = current_user.user_watches.joins(:episode).where("episodes.show_id" => @show.id)
   end
 
   private 
