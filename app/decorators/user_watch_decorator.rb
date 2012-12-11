@@ -1,4 +1,4 @@
-class WatchDecorator < Draper::Base
+class UserWatchDecorator < Draper::Base
   decorates :user_watch
 
   def show_name

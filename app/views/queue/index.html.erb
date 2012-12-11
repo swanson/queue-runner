@@ -1,14 +1,31 @@
 <div class="queue">
+  <% if flash[:notice] %>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="alert alert-success alert-small">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="row-fluid">
     <div class="span12">
       <div class="section-title">
         <div class="row-fluid">
-          <h2>Your Queue</h2>
+          <div class="span4">
+            <h2>Your Queue</h2>
+          </div>
 
-          <div class="pull-right">
-            <%= link_to new_show_path, :class => "btn btn-small btn-primary" do %>
-              <i class="icon-plus-sign icon-white"></i> Track a Show
-            <% end %>
+          <div class="span5">
+          </div>
+
+          <div class="span3">
+            <div class="pull-right">
+              <%= link_to new_show_path, :class => "btn btn-small btn-primary" do %>
+                <i class="icon-plus-sign icon-white"></i> Track a Show
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -16,7 +33,7 @@
       <% if @unwatched.any? %>
         <% @unwatched.each do |w| %>
           <%= div_for(w) do %>
-            <%= render :partial => "episode", :locals => { :watch => WatchDecorator.new(w) } %>
+            <%= render :partial => "episode", :locals => { :watch => UserWatchDecorator.new(w) } %>
           <% end %>
         <% end %>
       <% else %>

@@ -11,7 +11,7 @@ class ShowsController < ApplicationController
 
     ShowJobs.delay.add_show(current_user, show_title, seen_all)
 
-    flash[:notice] = "Added show - #{params[:show][:title]}"
+    flash[:notice] = "We'll add '#{params[:show][:title].titleize}' to your queue, check back in a bit."
     redirect_to queue_index_path
   end
 

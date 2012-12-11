@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :user_watches
 
   def unwatched
-    user_watches.where(:watched => false).sort_by {|u| u.air_date }
+    user_watches.where(:watched => false).includes(:show).sort_by {|u| u.air_date }
   end
 
   def watched

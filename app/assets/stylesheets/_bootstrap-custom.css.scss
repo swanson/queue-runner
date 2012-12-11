@@ -96,3 +96,16 @@ html, body {
   display: none !important;
   width: 0px !important;
 }
+
+.alert-small {
+  height: 28px;
+  line-height: 28px;
+  padding: 0px 14px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+
+  .close {
+    right: -7px;
+    top: 1px;
+  }
+}
