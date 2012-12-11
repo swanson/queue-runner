@@ -15,6 +15,8 @@ class ShowTracker
 
   def find_or_create_show(show_title)
     result = @api.search(show_title).first
+    # if result is nil, we didn't find the show and shit is gonna explode
+
     show = Show.where(:slug => result["tvdb_id"]).first
 
     if show.nil?

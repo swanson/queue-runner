@@ -6,20 +6,13 @@ class ShowsController < ApplicationController
   end
 
   def create
-    begin
-      tracker = ShowTracker.new(@trakt_api)
-      show = tracker.find_or_create_show(params[:show][:title])
+    show_title = params[:show][:title]
+    seen_all = params[:show][:seen_all] == "on"
 
-      seen_all = params[:show][:seen_all] == "on"
-      tracker.track_show(current_user, show, seen_all)
+    ShowJobs.delay.add_show(current_user, show_title, seen_all)
 
-      flash[:notice] = "Added show - #{show.name}"
-      redirect_to queue_index_path
-    rescue
-      # Since we hit third-party APIs in this action at the moment, rescue for safety
-      flash[:alert] = "Yikes! Something went wrong."
-      render :new
-    end
+    flash[:notice] = "Added show - #{params[:show][:title]}"
+    redirect_to queue_index_path
   end
 
   def index

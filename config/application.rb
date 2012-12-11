@@ -61,5 +61,7 @@ module TvQueue
     # Heroku stuff
     config.assets.initialize_on_precompile = false
     config.logger = Logger.new(STDOUT)
+
+    Delayed::Worker.logger = Rails.logger
   end
 end

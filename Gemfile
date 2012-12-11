@@ -38,7 +38,7 @@ gem 'thin'
 gem 'ferrara', :git => 'git://github.com/swanson/ferrara.git'
 gem 'draper'
 gem 'stamp'
-
+gem 'delayed_job_active_record'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
