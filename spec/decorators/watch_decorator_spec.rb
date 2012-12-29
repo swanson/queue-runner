@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe WatchDecorator do
+describe UserWatchDecorator do
   let(:show) { Show.new(:name => "Lost") }
   let(:episode) { Episode.create(:name => "Pilot", 
                                :season_number => 1, 
@@ -10,7 +10,7 @@ describe WatchDecorator do
                               )
                 }
   let(:source) { UserWatch.new(:episode => episode) }
-  let(:decorator) { WatchDecorator.new(source) }
+  let(:decorator) { UserWatchDecorator.new(source) }
 
   it 'delegates show_name' do
     decorator.show_name.should == "Lost"
