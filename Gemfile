@@ -5,7 +5,7 @@ end
 
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 group :development do
   gem 'sqlite3'
@@ -32,7 +32,7 @@ gem 'simple_form'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jquery-rails'
-gem 'nestful'
+gem 'nestful', :git => 'git://github.com/maccman/nestful.git'
 gem 'spinjs-rails'
 gem 'thin'
 gem 'ferrara', :git => 'git://github.com/swanson/ferrara.git'
