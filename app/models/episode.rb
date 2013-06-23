@@ -1,5 +1,6 @@
 class Episode < ActiveRecord::Base
   belongs_to :show
+  has_many :user_watches, dependent: :destroy
 
   default_scope order("air_date desc")
 
